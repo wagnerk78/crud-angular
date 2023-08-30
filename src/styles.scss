@@ -2,11 +2,47 @@
 @import '@angular/material/theming';
 @include mat-core();
 
-$custom-app-primary: mat-palette($mat-yellow);
-$custom-app-secondary: mat-palette($mat-blue);
+/* For use in src/lib/core/theming/_palette.scss */
+$md-mcgpalette0: (
+    50 : #f6e5ed,
+    100 : #e9bed3,
+    200 : #da93b6,
+    300 : #cb6798,
+    400 : #bf4782,
+    500 : #b4266c,
+    600 : #ad2264,
+    700 : #a41c59,
+    800 : #9c174f,
+    900 : #8c0d3d,
+    A100 : #ffbdd2,
+    A200 : #ff8ab0,
+    A400 : #ff578e,
+    A700 : #ff3d7d,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+
+
+$custom-app-primary: mat-palette($md-mcgpalette0);
+$custom-app-accent: mat-palette($md-mcgpalette0, A700);
 $custom-app-warn: mat-palette($mat-red);
 
-$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+$custom-theme: mat-light-theme($custom-app-primary, $custom-app-accent, $custom-app-warn);
 
 @include angular-material-theme($custom-theme);
 
