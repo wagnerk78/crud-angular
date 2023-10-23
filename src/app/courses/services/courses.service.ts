@@ -18,6 +18,9 @@ export class CoursesService {
       first(),
       //delay(3000)
     );
+  }
 
+  save (record: Course){
+   return this.httpClient.post<Course>(this.API, record).pipe(first())
   }
 }

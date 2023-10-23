@@ -1,7 +1,12 @@
-
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupName } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Course } from '../models/course';
+import { CoursesService } from '../services/courses.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Location } from '@angular/common';
+
+
 
 
 @Component({
@@ -18,13 +23,16 @@ form: FormGroup;
 // get value(): Course | null {
 //   let n = this.form.value;
 // return n
+
 // }
 // set value(c: Course | null) {
-//   this.form.setValue({id: c?._id, name: c?.name, category: c?.category })
+//   this.form.setValue({name: c?.name, category: c?.category })
 // }
 
 
-constructor(private fb: FormBuilder) {
+constructor(private fb: FormBuilder, private service: CoursesService,
+  private snackBar: MatSnackBar,
+  private location: Location ) {
 this.form = fb.group({
  'name': 'null',
  'category': 'null'
@@ -34,6 +42,23 @@ this.form = fb.group({
 
 ngOnInit(): void {
 
+}
+
+onSubmit(f: NgForm){
+  this.service.save(f.value).subscribe(result => this.onSucess(),  error => this.onError())
+}
+
+private onError() {
+  this.snackBar.open('Erro ao salvar curso', '',   {duration: 3000})
+}
+
+private onSucess(){
+  this.snackBar.open('Curso salvo com sucesso!', '',   {duration: 3000})
+  this.onCancel()
+}
+
+onCancel() {
+  this.location.back();
 }
 
 }
