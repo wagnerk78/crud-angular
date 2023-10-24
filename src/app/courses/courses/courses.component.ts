@@ -49,7 +49,8 @@ onAdd() {
 
 
 onEdit(element: Course) {
- this.router.navigate(['new'], {relativeTo: this.route})
+ this.router.navigate(['edit', element._id], {relativeTo: this.route})
+ console.log(element)
 }
 
 

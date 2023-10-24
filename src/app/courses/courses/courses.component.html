@@ -27,8 +27,8 @@
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" aria-label="Editar Curso">
-              <mat-icon (click)="onEdit(element)">edit_note</mat-icon>
+            <button mat-icon-button color="primary" aria-label="Editar Curso" (click)="onEdit(element)">
+              <mat-icon >edit_note</mat-icon>
             </button>
             <button mat-icon-button color="primary" aria-label="Remover Curso">
               <mat-icon>delete</mat-icon>

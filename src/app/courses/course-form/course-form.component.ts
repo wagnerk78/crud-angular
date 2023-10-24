@@ -18,18 +18,6 @@ export class CourseFormComponent implements OnInit {
 
 form: FormGroup;
 
-
-// @Input()
-// get value(): Course | null {
-//   let n = this.form.value;
-// return n
-
-// }
-// set value(c: Course | null) {
-//   this.form.setValue({name: c?.name, category: c?.category })
-// }
-
-
 constructor(private fb: FormBuilder, private service: CoursesService,
   private snackBar: MatSnackBar,
   private location: Location ) {
